@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
@@ -182,10 +183,13 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-xl">
-                  <img
+                  <Image
                     src="/Images/image-1.jpeg"
                     alt="Service location"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               </div>

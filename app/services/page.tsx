@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Wrench, Snowflake, Wind, Droplets, Zap, Shield } from 'lucide-react';
@@ -99,12 +100,15 @@ export default function ServicesPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-gray-100">
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                    />
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-500"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <service.icon className="absolute bottom-4 left-4 h-10 w-10 text-white" />
                   </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Image as ImageIcon, X } from 'lucide-react';
@@ -45,10 +46,13 @@ export default function GalleryPage() {
                   className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition cursor-pointer"
                   onClick={() => setSelectedImage(image)}
                 >
-                  <img
+                  <Image
                     src={image}
                     alt={`Gallery image ${index + 1}`}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-500"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
                     <div className="absolute bottom-4 left-4 text-white">
@@ -67,17 +71,22 @@ export default function GalleryPage() {
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-4 right-4 text-white hover:text-gray-300 transition"
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition z-10"
               onClick={() => setSelectedImage(null)}
             >
               <X className="h-8 w-8" />
             </button>
-            <img
-              src={selectedImage}
-              alt="Full size"
-              className="max-w-full max-h-full object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
+            <div className="relative w-full h-full max-w-7xl max-h-[90vh]">
+              <Image
+                src={selectedImage}
+                alt="Full size"
+                fill
+                className="object-contain"
+                onClick={(e) => e.stopPropagation()}
+                quality={90}
+                sizes="100vw"
+              />
+            </div>
           </div>
         )}
       </main>

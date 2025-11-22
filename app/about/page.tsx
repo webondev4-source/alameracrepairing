@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Star, Award, Users, Shield, Clock, MapPin } from 'lucide-react';
@@ -39,12 +40,15 @@ export default function AboutPage() {
                   <span className="font-semibold">Serving Rifa Dibba Al Fujairah & Surrounding Areas</span>
                 </div>
               </div>
-              <div className="relative">
-                <img
-                  src="/Images/men-working-with-equipment-full-shot.jpg"
-                  alt="Our team at work"
-                  className="rounded-2xl shadow-2xl"
-                />
+            <div className="relative h-96 md:h-[500px]">
+              <Image
+                src="/Images/men-working-with-equipment-full-shot.jpg"
+                alt="Our team at work"
+                fill
+                className="object-cover rounded-2xl shadow-2xl"
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
               </div>
             </div>
           </div>

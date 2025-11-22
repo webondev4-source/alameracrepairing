@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone } from 'lucide-react';
 
 export default function Header() {
@@ -9,11 +10,14 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center space-x-3">
-            <img 
-              src="/Images/logo.jpg" 
-              alt="AL Amer AC Repairing Logo" 
-              className="h-12 w-12 object-contain"
-            />
+              <Image 
+                src="/Images/logo.jpg" 
+                alt="AL Amer AC Repairing Logo" 
+                width={48}
+                height={48}
+                className="object-contain"
+                quality={90}
+              />
             <div>
               <h1 className="text-2xl font-bold text-gray-900">AL Amer</h1>
               <p className="text-xs text-gray-600">AC Repairing</p>

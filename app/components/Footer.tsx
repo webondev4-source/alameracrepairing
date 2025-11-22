@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
@@ -10,11 +11,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img 
-                src="/Images/logo.jpg" 
-                alt="AL Amer AC Repairing Logo" 
-                className="h-10 w-10 object-contain"
-              />
+                <Image 
+                  src="/Images/logo.jpg" 
+                  alt="AL Amer AC Repairing Logo" 
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                  quality={90}
+                />
               <div>
                 <h3 className="text-xl font-bold">AL Amer</h3>
                 <p className="text-sm text-gray-400">AC Repairing</p>

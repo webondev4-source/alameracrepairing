@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { ChevronLeft, ChevronRight, Star, Award, Users, Shield, Clock, HelpCircle, CheckCircle, MapPin } from 'lucide-react';
@@ -56,10 +57,14 @@ export default function Home() {
               }`}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-10" />
-              <img
+              <Image
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority={index === 0}
+                quality={85}
+                sizes="100vw"
               />
               <div className="absolute inset-0 z-20 flex items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -144,10 +149,13 @@ export default function Home() {
             ].map((service, index) => (
               <Link key={index} href="/services" className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-500"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <div className="p-6">
@@ -290,10 +298,13 @@ export default function Home() {
             ].map((item, index) => (
               <div key={index} className="relative group">
                 <div className="relative h-64 rounded-2xl overflow-hidden mb-4 shadow-lg group-hover:shadow-2xl transition">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-500"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                   <div className="absolute top-4 left-4 bg-blue-600 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center">
                     {item.step}
@@ -333,10 +344,13 @@ export default function Home() {
             ].map((item, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
                 <div className="relative h-64 overflow-hidden">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover hover:scale-110 transition duration-500"
+                    fill
+                    className="object-cover hover:scale-110 transition duration-500"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <div className="p-6">
@@ -352,11 +366,14 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <img
+            <div className="relative h-96 md:h-[500px]">
+              <Image
                 src="/Images/worker-works-air-conditioner.jpg"
                 alt="Professional AC service"
-                className="rounded-2xl shadow-2xl"
+                fill
+                className="object-cover rounded-2xl shadow-2xl"
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div>
